@@ -5,23 +5,23 @@
 ## Makefile for 206neutrinos.
 ##
 
-SRC		=	main.go
-
-SRC		:=	$(addprefix src/, $(SRC))
+MAIN	=	main.js
 
 NAME	=	206neutrinos
 
 all: $(NAME)
 
-$(NAME): $(SRC)
-	go build -o $(NAME) $(SRC)
+$(NAME):
+	echo '#!/bin/node' > $(NAME)
+	cat $(MAIN) >> $(NAME)
+	chmod +x $(NAME)
 
-# launch_tests:
-# 	go test ./src/
+build:
+	./compile.sh
 
 fclean:
 	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all fclean re
+.PHONY: all $(NAME) build fclean re
