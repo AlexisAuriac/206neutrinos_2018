@@ -8,13 +8,27 @@ rl = require('readline').createInterface(
 	terminal: true
 )
 
-rl.setPrompt("> ", 5)
+rl.setPrompt("Enter next value: ")
 
-# updateRecords = (line)
+updateRecords = (line) -> ++n
+
+dispRecords = ->
+	console.log("""
+		\tNumber of values:	#{n}
+		\tStandard deviation	0
+		\tArithmetic mean:	0
+		\tRoot mean square:	0
+		\tHarmonic mean:		0
+
+	""")
 
 handleInput = (input) ->
-	console.log(input)
+	if input == "END"
+		process.exit 0
+	updateRecords input
+	do dispRecords
 	do rl.prompt
 
 do rl.prompt
 rl.on('line', handleInput)
+# rl.on('close', () -> console.log "END")
