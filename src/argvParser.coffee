@@ -24,12 +24,14 @@ parser = (argv) ->
 		console.log(do USAGE)
 		process.exit 84
 
-	values = []
-	for i in [1..4]
+	record = {n: 0, a: 0, h: 0, sd: 0}
+	i = 1
+	for key in Object.keys record
 		if not isUint argv[i]
 			console.error("Invalid #{valuesDesc[i - 1]}")
 			process.exit 84
-		values.push(Number(argv[i]))
-	return values
+		record[key] = Number(argv[i])
+		++i
+	return record
 
 module.exports = parser

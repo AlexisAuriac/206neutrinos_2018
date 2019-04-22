@@ -13,20 +13,29 @@
   };
 
   parser = function(argv) {
-    var i, j, values;
+    var i, j, key, len, records, ref;
     if (argv.length !== 5) {
       console.log(USAGE());
       process.exit(84);
     }
-    values = [];
-    for (i = j = 1; j <= 4; i = ++j) {
+    records = {
+      n: 0,
+      a: 0,
+      h: 0,
+      sd: 0
+    };
+    i = 1;
+    ref = Object.keys(records);
+    for (j = 0, len = ref.length; j < len; j++) {
+      key = ref[j];
       if (!isUint(argv[i])) {
         console.error(`Invalid ${valuesDesc[i - 1]}`);
         process.exit(84);
       }
-      values.push(Number(argv[i]));
+      records[key] = Number(argv[i]);
+      ++i;
     }
-    return values;
+    return records;
   };
 
   module.exports = parser;

@@ -1,6 +1,7 @@
 parser = require "./src/argvParser.coffee"
+updateRecords = require "./src/updateRecords.coffee"
 
-[n, a, h, sd] = parser process.argv.slice(1)
+record = parser process.argv.slice(1)
 
 rl = require('readline').createInterface(
 	input: process.stdin,
@@ -8,11 +9,11 @@ rl = require('readline').createInterface(
 	terminal: true
 )
 
+console.log(record)
+
 rl.setPrompt("Enter next value: ")
 
-updateRecords = (line) -> ++n
-
-dispRecords = ->
+dispRecords = ({n, a, h, sd}) ->
 	console.log("""
 		\tNumber of values:	#{n}
 		\tStandard deviation	0
@@ -25,10 +26,9 @@ dispRecords = ->
 handleInput = (input) ->
 	if input == "END"
 		process.exit 0
-	updateRecords input
-	do dispRecords
+	updateRecords input, record
+	dispRecords record
 	do rl.prompt
 
 do rl.prompt
 rl.on('line', handleInput)
-# rl.on('close', () -> console.log "END")

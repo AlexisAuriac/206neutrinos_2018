@@ -8,6 +8,7 @@ MAIN="./main.coffee"
 SRC=(
 	$MAIN
 	./src/argvParser.coffee
+	./src/updateRecords.coffee
 )
 
 function get_dist {
