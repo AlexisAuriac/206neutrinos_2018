@@ -19,10 +19,6 @@ valuesDesc = [
 isUint = (str) ->
 	typeof str == "string" && Boolean(str.match(/[1-9]\d*/))
 
-isInt = (str) ->
-	typeof str == "string" && Boolean(str.match(/\d+/))
-
-
 parser = (argv) ->
 	if argv.length != 5
 		console.log(do USAGE)
