@@ -9,8 +9,6 @@ rl = require('readline').createInterface(
 	terminal: true
 )
 
-console.log(record)
-
 rl.setPrompt("Enter next value: ")
 
 dispRecords = ({n, a, h, sd}) ->

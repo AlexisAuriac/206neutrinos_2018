@@ -7,6 +7,7 @@ MAIN="./main.coffee"
 
 SRC=(
 	$MAIN
+	./src/utility.coffee
 	./src/argvParser.coffee
 	./src/updateRecords.coffee
 )
@@ -20,7 +21,7 @@ function compile {
 	dist=$(get_dist $src)
 
 	coffee -c $src
-	sed -i -E "s/(require\(.*).coffee([\'\"]\))/\1.js\2/" $dist
+	sed -i -E "s/(require\s*\(?.*).coffee([\'\"]\))/\1.js\2/" $dist
 }
 
 for i in ${SRC[@]}; do

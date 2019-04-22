@@ -2,40 +2,38 @@
 (function() {
   var USAGE, isUint, parser, valuesDesc;
 
+  isUint = require("./utility.js").isUint;
+
   USAGE = function(bin) {
     return `USAGE\n	${bin} n a  h sd\n\nDESCRIPTION\n	n		number of values\n	a		arithmetic mean\n	h		harmonic mean\n	sd		standard deviation`;
   };
 
   valuesDesc = ["number of values", "arithmetic mean", "harmonic mean", "standard deviation"];
 
-  isUint = function(str) {
-    return typeof str === "string" && Boolean(str.match(/[1-9]\d*/));
-  };
-
   parser = function(argv) {
-    var i, j, key, len, records, ref;
+    var i, j, key, len, record, ref;
     if (argv.length !== 5) {
       console.log(USAGE());
       process.exit(84);
     }
-    records = {
+    record = {
       n: 0,
       a: 0,
       h: 0,
       sd: 0
     };
     i = 1;
-    ref = Object.keys(records);
+    ref = Object.keys(record);
     for (j = 0, len = ref.length; j < len; j++) {
       key = ref[j];
       if (!isUint(argv[i])) {
-        console.error(`Invalid ${valuesDesc[i - 1]}`);
+        console.error(`${argv[i]}: Invalid ${valuesDesc[i - 1]}`);
         process.exit(84);
       }
-      records[key] = Number(argv[i]);
+      record[key] = Number(argv[i]);
       ++i;
     }
-    return records;
+    return record;
   };
 
   module.exports = parser;
