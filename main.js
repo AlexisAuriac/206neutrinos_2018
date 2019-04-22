@@ -6,6 +6,6 @@
 
   [n, a, h, sd] = parser(process.argv.slice(1));
 
-  console.log(n, a, h, sd);
+  console.log(`n: ${n}\na: ${a}\nh: ${h}\nsd: ${sd}`);
 
 }).call(this);
