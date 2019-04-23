@@ -10,7 +10,6 @@ SRC=(
 	./src/utility.coffee
 	./src/record.coffee
 	./src/argvParser.coffee
-	./src/updateRecords.coffee
 )
 
 function get_dist {
