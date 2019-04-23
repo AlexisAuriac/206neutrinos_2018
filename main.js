@@ -33,4 +33,8 @@
 
   rl.on('line', handleInput);
 
+  rl.on('close', function() {
+    return process.exit(84);
+  });
+
 }).call(this);

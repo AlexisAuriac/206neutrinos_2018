@@ -30,3 +30,4 @@ handleInput = (input) ->
 
 do rl.prompt
 rl.on('line', handleInput)
+rl.on('close', () -> process.exit 84)
