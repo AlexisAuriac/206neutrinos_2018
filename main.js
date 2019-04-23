@@ -17,7 +17,7 @@
   rl.setPrompt("Enter next value: ");
 
   dispRecords = function({n, a, h, sd}) {
-    return console.log(`\tNumber of values:	${n}\n\tStandard deviation	0\n\tArithmetic mean:	0\n\tRoot mean square:	0\n\tHarmonic mean:		0\n`);
+    return console.log(`\tNumber of values:	${n}\n\tStandard deviation	0\n\tArithmetic mean:	${a.toFixed(2)}\n\tRoot mean square:	${sd.toFixed(2)}\n\tHarmonic mean:		${h.toFixed(2)}\n`);
   };
 
   handleInput = function(input) {

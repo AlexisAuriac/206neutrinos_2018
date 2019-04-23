@@ -15,9 +15,9 @@ dispRecords = ({n, a, h, sd}) ->
 	console.log("""
 		\tNumber of values:	#{n}
 		\tStandard deviation	0
-		\tArithmetic mean:	0
-		\tRoot mean square:	0
-		\tHarmonic mean:		0
+		\tArithmetic mean:	#{a.toFixed(2)}
+		\tRoot mean square:	#{sd.toFixed(2)}
+		\tHarmonic mean:		#{h.toFixed(2)}
 
 	""")
 
