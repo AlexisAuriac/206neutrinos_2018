@@ -42,6 +42,10 @@
       return this.sd = Math.sqrt(this.rms ** 2 - this.a ** 2);
     }
 
+    updateHarmonicMean(old, val) {
+      return this.h = (old.n + 1) / (old.n / old.h + 1 / val);
+    }
+
     update(line) {
       var old, val;
       old = this.copy();
@@ -53,7 +57,8 @@
       val = Number(line);
       this.updateArithmeticMean(old, val);
       this.updateRMS(old, val);
-      return this.updateStandardDeviation(old, val);
+      this.updateStandardDeviation(old, val);
+      return this.updateHarmonicMean(old, val);
     }
 
   };

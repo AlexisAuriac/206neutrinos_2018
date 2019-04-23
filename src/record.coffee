@@ -36,6 +36,9 @@ module.exports = class Record
 	updateStandardDeviation: (old, val) ->
 		this.sd = Math.sqrt(this.rms**2 - this.a**2)
 
+	updateHarmonicMean: (old, val) ->
+		this.h = (old.n + 1) / (old.n / old.h + 1 / val)
+
 	update: (line) ->
 		old = do this.copy
 
@@ -47,3 +50,4 @@ module.exports = class Record
 		this.updateArithmeticMean old, val
 		this.updateRMS old, val
 		this.updateStandardDeviation old, val
+		this.updateHarmonicMean old, val
