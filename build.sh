@@ -8,6 +8,7 @@ MAIN="./main.coffee"
 SRC=(
 	$MAIN
 	./src/utility.coffee
+	./src/record.coffee
 	./src/argvParser.coffee
 	./src/updateRecords.coffee
 )

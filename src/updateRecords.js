@@ -4,19 +4,25 @@
 
   isUint = require("./utility.js").isUint;
 
-  updateArithmeticMean = function(record, val) {
-    return record.a = record.a + (val - record.a) / record.n;
+  updateArithmeticMean = function(oldR, newR, val) {
+    return newR.a = oldR.a + (val - oldR.a) / newR.n;
   };
 
+  // updateStandardDeviation = (oldR, newR, val) ->
+  // 	oldVar = oldR.sd ** 2
+  // 	record.a = record.a  + (val - record.a) / record.n
   updateRecords = function(line, record) {
-    var val;
-    ++record.n;
+    var newRecord, val;
+    newRecord = record.copy();
+    ++newRecord.n;
     if (!isUint(line)) {
       console.error(`${line}: Invalid value`);
       process.exit(84);
     }
     val = Number(line);
-    return updateArithmeticMean(record, val);
+    updateArithmeticMean(record, newRecord, val);
+    // updateStandardDeviation record, val
+    return newRecord;
   };
 
   module.exports = updateRecords;

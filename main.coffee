@@ -11,20 +11,20 @@ rl = require('readline').createInterface(
 
 rl.setPrompt("Enter next value: ")
 
-dispRecords = ({n, a, h, sd}) ->
+dispRecords = (r) ->
 	console.log("""
-		\tNumber of values:	#{n}
-		\tStandard deviation	0
-		\tArithmetic mean:	#{a.toFixed(2)}
-		\tRoot mean square:	#{sd.toFixed(2)}
-		\tHarmonic mean:		#{h.toFixed(2)}
+		\tNumber of values:	#{r.n}
+		\tStandard deviation	#{r.rms.toFixed(2)}
+		\tArithmetic mean:	#{r.a.toFixed(2)}
+		\tRoot mean square:	#{r.sd.toFixed(2)}
+		\tHarmonic mean:		#{r.h.toFixed(2)}
 
 	""")
 
 handleInput = (input) ->
 	if input == "END"
 		process.exit 0
-	updateRecords input, record
+	record = updateRecords input, record
 	dispRecords record
 	do rl.prompt
 

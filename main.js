@@ -16,15 +16,16 @@
 
   rl.setPrompt("Enter next value: ");
 
-  dispRecords = function({n, a, h, sd}) {
-    return console.log(`\tNumber of values:	${n}\n\tStandard deviation	0\n\tArithmetic mean:	${a.toFixed(2)}\n\tRoot mean square:	${sd.toFixed(2)}\n\tHarmonic mean:		${h.toFixed(2)}\n`);
+  // dispRecords = ({n, a, h, sd}) ->
+  dispRecords = function(r) {
+    return console.log(`\tNumber of values:	${r.n}\n\tStandard deviation	${r.rms.toFixed(2)}\n\tArithmetic mean:	${r.a.toFixed(2)}\n\tRoot mean square:	${r.sd.toFixed(2)}\n\tHarmonic mean:		${r.h.toFixed(2)}\n`);
   };
 
   handleInput = function(input) {
     if (input === "END") {
       process.exit(0);
     }
-    updateRecords(input, record);
+    record = updateRecords(input, record);
     dispRecords(record);
     return rl.prompt();
   };

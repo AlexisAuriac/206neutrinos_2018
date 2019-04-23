@@ -1,4 +1,5 @@
 isUint = require("./utility.coffee").isUint
+Record = require("./record.coffee")
 
 USAGE = (bin) -> """
 USAGE
@@ -23,14 +24,12 @@ parser = (argv) ->
 		console.log(do USAGE)
 		process.exit 84
 
-	record = {n: 0, a: 0, h: 0, sd: 0}
-	i = 1
-	for key in Object.keys record
+	values = []
+	for i in [1..4]
 		if not isUint argv[i]
 			console.error("#{argv[i]}: Invalid #{valuesDesc[i - 1]}")
 			process.exit 84
-		record[key] = Number(argv[i])
-		++i
-	return record
+		values.push(Number(argv[i]))
+	return new Record(...values)
 
 module.exports = parser
