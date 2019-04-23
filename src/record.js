@@ -35,14 +35,13 @@
     }
 
     updateRMS(old, val) {
-      console.log(`old.n: ${old.n}`);
-      console.log(`this.n: ${this.n}`);
       return this.rms = Math.sqrt((old.n * old.rms ** 2 + val ** 2) / this.n);
     }
 
-    // updateStandardDeviation: (old, val) ->
-    // 	oldVar = old.sd ** 2
-    // 	this.a = this.a  + (val - this.a) / this.n
+    updateStandardDeviation(old, val) {
+      return this.sd = Math.sqrt(this.rms ** 2 - this.a ** 2);
+    }
+
     update(line) {
       var old, val;
       old = this.copy();
@@ -53,11 +52,10 @@
       }
       val = Number(line);
       this.updateArithmeticMean(old, val);
-      return this.updateRMS(old, val);
+      this.updateRMS(old, val);
+      return this.updateStandardDeviation(old, val);
     }
 
   };
-
-  // updateStandardDeviation record, val
 
 }).call(this);
