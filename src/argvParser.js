@@ -7,7 +7,7 @@
   Record = require("./record.js");
 
   USAGE = function(bin) {
-    return `USAGE\n	${bin} n a  h sd\n\nDESCRIPTION\n	n		number of values\n	a		arithmetic mean\n	h		harmonic mean\n	sd		standard deviation`;
+    return `USAGE\n	${bin} n a h sd\n\nDESCRIPTION\n	n		number of values\n	a		arithmetic mean\n	h		harmonic mean\n	sd		standard deviation`;
   };
 
   valuesDesc = ["number of values", "arithmetic mean", "harmonic mean", "standard deviation"];

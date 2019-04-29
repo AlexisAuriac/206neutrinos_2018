@@ -3,7 +3,7 @@ Record = require("./record.coffee")
 
 USAGE = (bin) -> """
 USAGE
-	#{bin} n a  h sd
+	#{bin} n a h sd
 
 DESCRIPTION
 	n		number of values
