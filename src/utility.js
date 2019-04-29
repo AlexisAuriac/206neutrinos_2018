@@ -3,7 +3,7 @@
   var isUint;
 
   isUint = function(str) {
-    return typeof str === "string" && Boolean(str.match(/[1-9]\d*/));
+    return typeof str === "string" && Boolean(str.match(/^[1-9]\d*$/));
   };
 
   module.exports.isUint = isUint;
