@@ -20,6 +20,7 @@
     }
     record.update(input);
     console.log(record.toString());
+    console.log("");
     return rl.prompt();
   };
 

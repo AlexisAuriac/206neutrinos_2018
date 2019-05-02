@@ -15,6 +15,7 @@ handleInput = (input) ->
 		process.exit 0
 	record.update input
 	console.log record.toString()
+	console.log ""
 	do rl.prompt
 
 do rl.prompt
