@@ -4,8 +4,7 @@ record = parser process.argv.slice(1)
 
 rl = require('readline').createInterface(
 	input: process.stdin,
-	output: process.stdout,
-	terminal: true
+	output: process.stdout
 )
 
 rl.setPrompt("Enter next value: ")
@@ -19,5 +18,6 @@ handleInput = (input) ->
 	do rl.prompt
 
 do rl.prompt
+
 rl.on('line', handleInput)
 rl.on('close', () -> process.exit 84)

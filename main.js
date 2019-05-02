@@ -8,8 +8,7 @@
 
   rl = require('readline').createInterface({
     input: process.stdin,
-    output: process.stdout,
-    terminal: true
+    output: process.stdout
   });
 
   rl.setPrompt("Enter next value: ");
