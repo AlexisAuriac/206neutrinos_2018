@@ -27,7 +27,7 @@
     }
 
     toString(r) {
-      return `\tNumber of values:	${this.n}\n\tStandard deviation	${this.sd.toFixed(2)}\n\tArithmetic mean:	${this.a.toFixed(2)}\n\tRoot mean square:	${this.rms.toFixed(2)}\n\tHarmonic mean:		${this.h.toFixed(2)}`;
+      return `\tNumber of values:	${this.n}\n\tStandard deviation:	${this.sd.toFixed(2)}\n\tArithmetic mean:	${this.a.toFixed(2)}\n\tRoot mean square:	${this.rms.toFixed(2)}\n\tHarmonic mean:		${this.h.toFixed(2)}`;
     }
 
     updateArithmeticMean(old, val) {

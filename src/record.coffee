@@ -20,7 +20,7 @@ module.exports = class Record
 	toString: (r) ->
 		return """
 			\tNumber of values:	#{this.n}
-			\tStandard deviation	#{this.sd.toFixed(2)}
+			\tStandard deviation:	#{this.sd.toFixed(2)}
 			\tArithmetic mean:	#{this.a.toFixed(2)}
 			\tRoot mean square:	#{this.rms.toFixed(2)}
 			\tHarmonic mean:		#{this.h.toFixed(2)}
